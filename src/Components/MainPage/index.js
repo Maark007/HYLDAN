@@ -11,6 +11,7 @@ import {
   Games,
 } from './styles';
 import previewGames from '../../Models/mainPage'
+import { Link } from 'react-router-dom'
 
 export default function MainApp() {
   return (
@@ -28,7 +29,7 @@ export default function MainApp() {
             </div>
           </Tab>
           <SecondTab>
-            <a href="/games" className="hvr-fade">SEE OUR PRODUCTS</a>
+            <Link to="/games" className="hvr-fade">SEE OUR PRODUCTS</Link>
           </SecondTab>
         </Header>
         <SecondHeader>
