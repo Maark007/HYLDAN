@@ -34,7 +34,7 @@ export default function MainApp() {
         </Header>
         <SecondHeader>
           <div className="subtitles">
-            <div className="phrase">
+            <div className="phrase e">
               <ImgBox src="https://i.ibb.co/VJmqR6Z/emy.jpg" alt="img-1" />
               <h2>Action</h2>
               <span itemRef="span1">
