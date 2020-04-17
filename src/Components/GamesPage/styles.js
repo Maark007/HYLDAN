@@ -161,7 +161,7 @@ export const DivTable = styled.div`
     color: #fff;
     background: #E50914;
     margin: 5px;
-    border-radius: 2px;
+    border-radius: 3px;
     outline: none;
     cursor: pointer;
   }
