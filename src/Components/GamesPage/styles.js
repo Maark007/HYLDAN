@@ -136,10 +136,8 @@ export const DivTable = styled.div`
     padding: 5px;
     background: none;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    margin: 10px;
     border: 1px solid #00A86B;
     border-radius: 3px;
-    margin-left: 47px;
     width: 90px;
     letter-spacing: 0.0075em;
     transition: all 0.3s;
@@ -153,6 +151,20 @@ export const DivTable = styled.div`
 .fa-check {
     color:  #00A86B;
 }
+.fillBoxBtn {
+  display: flex;
+  justify-content: center;
+}
+.canvasClearBtn{
+    padding: 10px;
+    border: none;
+    color: #fff;
+    background: #E50914;
+    margin: 5px;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+  }
 `;
 
 export const GameBox = styled.div`

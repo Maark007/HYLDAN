@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import games from '../../Models/games';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import CanvasDraw from "react-canvas-draw";
 import {
   Main,
   Tab,
@@ -11,7 +12,6 @@ import {
   AbsoluteDescription,
   DivTable,
 } from './styles';
-
 import {
   Header,
   SecondTab
@@ -19,9 +19,15 @@ import {
 
 export default function GamesBuy() {
   const [filterDiv, setFilterDiv] = useState(false);
-  const [open, setOpen] = useState(false)
-  const [fillGames, setFillGames] = useState(games)
-  const [filterValue, setFilterValue] = useState(0)
+  const [open, setOpen] = useState(false);
+  const [fillGames, setFillGames] = useState(games);
+  const [filterValue, setFilterValue] = useState(0);
+  const myCanvas = useRef()
+
+  function handleTest() {
+    setOpen(true);
+    setFilterDiv(true);
+  }
 
   function handleClose() {
     setOpen(false);
@@ -34,11 +40,6 @@ export default function GamesBuy() {
       }
     })
     setFillGames(arrayFilter)
-  }
-
-  function handleTest() {
-    setOpen(true);
-    setFilterDiv(true);
   }
 
   return (
@@ -66,15 +67,30 @@ export default function GamesBuy() {
       {filterDiv &&
         <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
           <DialogTitle id="simple-dialog-title">Fill your games</DialogTitle>
-          <DivTable>
-            <div className="ColumnPrices">
-              <span onClick={() => setFilterValue(50)}>R$ 50 {filterValue === 50 && <i className="fas fa-check" />}</span>
-              <span onClick={() => setFilterValue(100)}>R$ 100 {filterValue === 100 && <i className="fas fa-check" />}</span>
-              <span onClick={() => setFilterValue(160)}>R$ 160 {filterValue === 160 && <i className="fas fa-check" />}</span>
-              <span onClick={() => setFilterValue(200)}>R$ 200+ {filterValue === 200 && <i className="fas fa-check" />}</span>
-            </div>
-            <button onClick={handleClose} className="fillButton">Fill</button>
-          </DivTable>
+          <div className="windowFillBox">
+            <DivTable>
+              <div className="ColumnPrices">
+                <span onClick={() => setFilterValue(50)}>R$ 50 {filterValue === 50 && <i className="fas fa-check" />}</span>
+                <span onClick={() => setFilterValue(100)}>R$ 100 {filterValue === 100 && <i className="fas fa-check" />}</span>
+                <span onClick={() => setFilterValue(160)}>R$ 160 {filterValue === 160 && <i className="fas fa-check" />}</span>
+                <span onClick={() => setFilterValue(200)}>R$ 200+ {filterValue === 200 && <i className="fas fa-check" />}</span>
+              </div>
+              <div className="fillBoxBtn">
+                <button onClick={handleClose} className="fillButton">Fill</button>
+              </div>
+              <CanvasDraw
+                brushColor='#000'
+                lazyRadius='0'
+                brushRadius='3'
+                canvasWidth={400}
+                canvasHeight={200}
+                styled={{ marginLeft: 10, marginRight: 10 }}
+                ref={myCanvas}
+              >
+              </CanvasDraw>
+              <button className="canvasClearBtn" onClick={() => myCanvas.current.clear()}>Clear</button>
+            </DivTable>
+          </div>
         </Dialog>
       }
       <GamesTab>

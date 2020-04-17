@@ -191,12 +191,11 @@ h1 {
 export const GamesTab = styled.div`
 display: flex;
 justify-content: space-around;
-
  img {
    width: 390px;
    height: auto;
    margin: 5px;
- }
+  }
    @media screen and (max-width: 720px){
      flex-direction: column;
    }
@@ -211,7 +210,7 @@ margin: 5px;
   width: 300px;
 }
 :hover{
- cursor: pointer;
+  cursor: pointer;
  & .absoluteImg {
   transform: translate3d(0, -60% ,0);
   transition: 0.7s ease;
@@ -234,7 +233,7 @@ margin: 5px;
   transition: all .6s ease;
   img {
      height: 80px;
-     @media screen and (max-width: 740px){
+     @media screen and (max-width: 840px){
      height: 60px;
    }
   }
