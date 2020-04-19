@@ -133,6 +133,8 @@ export const DivTable = styled.div`
     }
 }
 .fillButton {
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding: 5px;
     background: none;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
@@ -148,23 +150,31 @@ export const DivTable = styled.div`
         transition: all 0.3s;
     }
 }
+.fillButton-clear {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    background: none;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    border: 1px solid #ff2800;
+    border-radius: 3px;
+    width: 90px;
+    letter-spacing: 0.0075em;
+    transition: all 0.3s;
+    cursor: pointer;
+    :hover {
+        background:  #ff2800;
+        color: #fff;
+        transition: all 0.3s;
+    }
+}
 .fa-check {
     color:  #00A86B;
 }
 .fillBoxBtn {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
-.canvasClearBtn{
-    padding: 10px;
-    border: none;
-    color: #fff;
-    background: #E50914;
-    margin: 5px;
-    border-radius: 3px;
-    outline: none;
-    cursor: pointer;
-  }
 `;
 
 export const GameBox = styled.div`

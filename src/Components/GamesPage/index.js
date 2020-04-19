@@ -1,8 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import games from '../../Models/games';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import CanvasDraw from "react-canvas-draw";
 import {
   Main,
   Tab,
@@ -21,8 +20,7 @@ export default function GamesBuy() {
   const [filterDiv, setFilterDiv] = useState(false);
   const [open, setOpen] = useState(false);
   const [fillGames, setFillGames] = useState(games);
-  const [filterValue, setFilterValue] = useState(0);
-  const myCanvas = useRef()
+  const [filterValue, setFilterValue] = useState(null);
 
   function handleTest() {
     setOpen(true);
@@ -30,18 +28,26 @@ export default function GamesBuy() {
   }
 
   function handleClose() {
-    setOpen(false);
-
-    let arrayFilter = games.filter(e => {
-      if (filterValue === 200) {
-        return e.price >= filterValue;
-      } else {
-        return e.price <= filterValue;
-      }
-    })
-    setFillGames(arrayFilter)
+    if (filterValue !== null) {
+      let arrayFilter = games.filter(e => {
+        if (filterValue === 200) {
+          return e.price >= filterValue;
+        } else {
+          return e.price <= filterValue;
+        }
+      })
+      setOpen(false);
+      setFillGames(arrayFilter)
+    } else {
+      alert('Select one filter!')
+    }
   }
 
+  function clearFilter() {
+    setFillGames(games)
+    setFilterValue(null)
+    setOpen(false);
+  }
   return (
     <Main>
       <div className="all">
@@ -77,18 +83,8 @@ export default function GamesBuy() {
               </div>
               <div className="fillBoxBtn">
                 <button onClick={handleClose} className="fillButton">Fill</button>
+                <button onClick={clearFilter} className="fillButton-clear">Clear Filter</button>
               </div>
-              <CanvasDraw
-                brushColor='#000'
-                lazyRadius='0'
-                brushRadius='3'
-                canvasWidth={400}
-                canvasHeight={200}
-                styled={{ marginLeft: 10, marginRight: 10 }}
-                ref={myCanvas}
-              >
-              </CanvasDraw>
-              <button className="canvasClearBtn" onClick={() => myCanvas.current.clear()}>Clear</button>
             </DivTable>
           </div>
         </Dialog>

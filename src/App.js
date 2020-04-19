@@ -3,7 +3,7 @@ import './global.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import MainApp from './Components/MainPage';
-import GamesBuy from './Components/GamesPage';
+import GamesBuy from './Components/GamesPage/index'
 
 export default function App() {
   return (
