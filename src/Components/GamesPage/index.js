@@ -60,8 +60,7 @@ export default function GamesBuy() {
           </video>
           <SecondTab>
             <div className="centerDiv">
-              <img src={require('../../assets/game_undraw.svg')} alt="gameDiv" />
-              <h1>HYLDAN</h1>
+              <h1>See below</h1>
             </div>
           </SecondTab>
         </Header>
